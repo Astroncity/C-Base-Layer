@@ -3,6 +3,6 @@
 C base layer with important utilites
 
 - [ ] String operations
-- [ ] Linear Algerbra
+- [x] Linear Algerbra
 - [ ] Dyamic Arrays / Lists
 - [ ] Other datastructures (linked lists, trees, etc)
