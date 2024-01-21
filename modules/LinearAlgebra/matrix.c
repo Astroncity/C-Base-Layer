@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "matrix.h"
+#include "headers/colors.h"
 
 
 static void print(char* name, Matrix m);
@@ -127,12 +128,22 @@ static Matrix transpose(Matrix a){
 
 
 static void print(char* name, Matrix m){
+	printf("%s", FAINTRED);
 	printf("Matrix %s:\n", name);
+	printf("%s", RESET);
+	printf("%s", FAINTBLUE);
 	for(int i = 0; i < m.rows; i++){
+		printf("%s", "|");
 		for(int j = 0; j < m.columns; j++){
-			printf("%f ", m.data[i][j]);
+			printf("%f", m.data[i][j]);
+			//print space if not last column
+			if(j != m.columns - 1){
+				printf("%s", " ");
+			}
 		}
+		printf("%s", "|");
 		printf("\n");
 	}
 	printf("\n");
+	printf("%s", RESET);
 }

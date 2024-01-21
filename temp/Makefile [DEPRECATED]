@@ -1,0 +1,25 @@
+flags = -c -ggdb -Wall -Wextra -I dist/include 
+
+all:
+	cp modules/String/stringClass.h dist/include/headers/stringClass.h
+	gcc $(flags) modules/String/stringClass.c -o Build/stringClass.o
+
+	cp modules/Utils/utils.h dist/include/headers/utils.h
+	gcc $(flags) modules/Utils/utils.c -o Build/utils.o
+	
+
+	gcc $(flags) modules/LinearAlgebra/matrix.c -o Build/matrix.o
+	cp modules/LinearAlgebra/matrix.h dist/include/headers/matrix.h
+
+	ar cr dist/libCBase.a Build/matrix.o Build/utils.o Build/stringClass.o
+	cp src/CBase.h dist/include/CBase.h
+	
+	# tests
+	gcc tests/main.c -o tests/build/main.exe -I dist/include -L dist/ -lCBase
+
+
+
+	#command for running
+	# ./build.exe && gcc tests/main.c -o tests/build/main.exe -I dist/include -L dist/ -lCBase && ./tests/build/main.exe
+
+	

@@ -25,4 +25,4 @@ void matrixTests(){
     c.print("c", c);
     d.print("d", d);
     dT.print("d Transposed", dT);
-}
+}   
